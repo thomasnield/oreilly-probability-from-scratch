@@ -1,5 +1,4 @@
-
-# Declare possible outcomes for both dice
+# Declare possible outcomes for coin and die
 first_roll_outcomes = [1, 2, 3, 4, 5, 6]
 second_roll_outcomes = [1, 2, 3, 4, 5, 6]
 
@@ -16,8 +15,8 @@ second_is_1_thru_4 = [t for t in all_combinations if t[1] in range(1,5)]
 overlap = set(first_is_1_thru_4).intersection(set(second_is_1_thru_4))
 print("OVERLAP: {}".format(overlap))
 
-# Calculate broken probability
-broken_probability_either_1_thru_4 = \
-    float(len(first_is_1_thru_4) + len(second_is_1_thru_4)) / len(all_combinations)
+# Calculate correct probability
+correct_probability_either_1_thru_4 = \
+    float(len(first_is_1_thru_4) + len(second_is_1_thru_4) - len(overlap)) / len(all_combinations)
     
-print("BROKEN PROBABILITY OF EITHER DIE BEING 1-4: {}".format(broken_probability_either_1_thru_4))
+print("CORRECT PROBABILITY OF EITHER DIE BEING 1-4: {}".format(correct_probability_either_1_thru_4))
